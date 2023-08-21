@@ -1,6 +1,6 @@
 {
-  "name": "discord-moderation-bot",
-  "version": "2.0.0",
+  "name": "Stark",
+  "version": "5.0.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -23,7 +23,7 @@
     "ms": "^2.1.2",
     "node-canvas-with-twemoji-and-discord-emoji": "^1.2.1",
     "node-fetch": "^2.6.0",
-    "node-superfetch": "^0.1.11",
+    "node-superfetch": "^0.2.2",
     "parse-ms": "^3.0.0",
     "path": "^0.12.7",
     "quick.db": "^7.1.3",
@@ -35,6 +35,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Manav Garg",
-  "license": "ISC"
+  "author": "Nawrasse Dahman"
 }
