@@ -10,7 +10,7 @@ module.exports = {
         accessableby: 'Administrators'
     },
     run: async (bot, message, args) => {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! - [ADMINISTRATOR]**")
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! | [ADMINISTRATOR]**")
 
         try {
             let a = db.fetch(`modlog_${message.guild.id}`)
@@ -22,11 +22,11 @@ module.exports = {
                 bot.guilds.cache.get(message.guild.id).channels.cache.get(channel.id).send("**Welcome Channel Disabled!**")
                 db.delete(`modlog_${message.guild.id}`)
 
-                message.channel.send(`**Modlog Channel Has Been Successfully Disabled in \`${channel.name}\`**`)
+                message.channel.send(`**Modlog Channel Has Been Successfully Disabled In \`${channel.name}\`**`)
             }
             return;
         } catch {
-            return message.channel.send("**Error - `Missing Permissions or Channel Doesn't Exist`**")
+            return message.channel.send("**Error | `Missing Permissions Or Channel Doesn't Exist.`**")
         }
     }
 }

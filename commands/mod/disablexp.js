@@ -8,7 +8,7 @@ module.exports = {
         usage: ' '
     },
     run: async (bot, message, args) => {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! - [ADMINISTRATOR]**")
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! | [ADMINISTRATOR]**")
 
         try {
             let a  = await db.fetch(`guildMessages_${message.guild.id}`)

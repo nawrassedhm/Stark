@@ -8,7 +8,7 @@ module.exports = {
         usage: '[role name | role mention | role ID]',
     },
     run: async (bot, message, args) => {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! - [ADMINISTRATOR]**")
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! | [ADMINISTRATOR]**")
 
         try {
             let a = db.fetch(`muterole_${message.guild.id}`)
@@ -23,7 +23,7 @@ module.exports = {
             }
             return;
         } catch {
-            return message.channel.send("**Error - `Missing Permissions or Role Doesn't Exist`**")
+            return message.channel.send("**Error | `Missing Permissions or Role Doesn't Exist.`**")
         }
     }
 }

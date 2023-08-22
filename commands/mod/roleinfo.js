@@ -18,16 +18,15 @@ module.exports = {
         }
 
         let roleembed = new MessageEmbed()
-            .setColor("#2F3136")
-            .setTitle(`Role Info: \`[  ${role.name}  ]\``)
-            .setThumbnail(message.guild.iconURL())
+            .setColor("#6eb6c7")
             .addField("**ID**", `\`${role.id}\``, true)
             .addField("**Name**", role.name, true)
-            .addField("**Hex**", role.hexColor, true)
+            .addField("**Color**", role.hexColor, true)
             .addField("**Members**", role.members.size, true)
             .addField("**Position**", role.position, true)
             .addField("**Mentionable**", status[role.mentionable], true)
-            .setFooter(message.member.displayName, message.author.displayAvatarURL(), true)
+          
+.setFooter(message.member.displayName,message.author.displayAvatarURL(), true)
             .setTimestamp()
 
         message.channel.send(roleembed);

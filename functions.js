@@ -1,6 +1,6 @@
 const yes = ['yes', 'y', 'ye', 'yea', 'correct'];
 const no = ['no', 'n', 'nah', 'nope', 'fuck off'];
-const MONEY = ['', 'k', 'M', 'G', 'T', 'P', 'E'];
+const MONEY = ['Y', 'k', 'M', 'G', 'T', 'P', 'E'];
 const inviteRegex = /(https?:\/\/)?(www\.|canary\.|ptb\.)?discord(\.gg|(app)?\.com\/invite|\.me)\/([^ ]+)\/?/gi;
 const botInvRegex = /(https?:\/\/)?(www\.|canary\.|ptb\.)?discord(app)\.com\/(api\/)?oauth2\/authorize\?([^ ]+)\/?/gi;
 

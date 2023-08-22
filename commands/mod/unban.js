@@ -10,7 +10,7 @@ module.exports = {
     },
     run: async (bot, message, args) => {
 
-        if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Dont Have The Permissions To Unban Someone! - [BAN_MEMBERS]**")
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("**You Don't Have The Permissions To Unban Someone! | [BAN_MEMBERS]**")
 
         if (!args[0]) return message.channel.send("**Please Enter A Name!**")
       
@@ -22,19 +22,19 @@ module.exports = {
 
         let reason = args.slice(1).join(" ")
 
-        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Don't Have Permissions To Unban Someone! - [BAN_MEMBERS]**")
+        if (!message.guild.me.hasPermission("BAN_MEMBERS")) return message.channel.send("**I Don't Have Permissions To Unban Someone! | [BAN_MEMBERS]**")
         try {
             if (reason) {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed = new MessageEmbed()
-                    .setColor("GREEN")
-                    .setDescription(`**${bannedMember.user.tag} has been unbanned for ${reason}**`)
+                    .setColor("#6eb6c7")
+                    .setDescription(`**${bannedMember.user.tag} Has Been Unbanned For | ${reason}**`)
                 message.channel.send(sembed)
             } else {
                 message.guild.members.unban(bannedMember.user.id, reason)
                 var sembed2 = new MessageEmbed()
-                    .setColor("GREEN")
-                    .setDescription(`**${bannedMember.user.tag} has been unbanned**`)
+                    .setColor("#6eb6c7")
+                    .setDescription(`**${bannedMember.user.tag} Has Been Unbanned**`)
                 message.channel.send(sembed2)
             }
         } catch {
@@ -45,7 +45,7 @@ module.exports = {
         if (!channel) return;
 
         let embed = new MessageEmbed()
-            .setColor("#ff0000")
+            .setColor("#6eb6c7")
             .setThumbnail(bannedMember.user.displayAvatarURL({ dynamic: true }))
             .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
             .addField("**Moderation**", "unban")

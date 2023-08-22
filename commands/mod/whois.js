@@ -17,10 +17,10 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         var permissions = [];
-        var acknowledgements = 'None';
+        var acknowledgements = 'Server Member';
         let whoisPermErr = new Discord.MessageEmbed()
         .setTitle("**User Permission Error!**")
-        .setDescription("**Sorry, you don't have permissions to use this! ❌**")
+        .setDescription("**Sorry, you don't have permissions to use this!**")
 
         if(!message.channel.permissionsFor(message.author).has("MANAGE_MESSAGES") ) return message.channel.send(whoisPermErr)
 
@@ -78,7 +78,7 @@ module.exports = {
         const embed = new Discord.MessageEmbed()
             .setDescription(`<@${member.user.id}>`)
             .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL())
-            .setColor('#2F3136')
+            .setColor('#6eb6c7')
             .setFooter(`ID: ${message.author.id}`)
             .setThumbnail(member.user.displayAvatarURL())
             .setTimestamp()

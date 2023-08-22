@@ -7,7 +7,7 @@ module.exports = {
             usage: "m/rolememberinfo <role mention/role id>",
             aliases: ['rmi', 'rmemberinfo']
         },
-        run: async (client, message, args) => {
+        run: async (bot, message, args) => {
         if (args.includes("@everyone")) return;
         
         if (args.includes("@here")) return;
@@ -26,8 +26,8 @@ module.exports = {
         if (membersWithRole > 2048) return message.channel.send('**List Is Too Long!**')
 
         let roleEmbed = new MessageEmbed()
-            .setColor("#2F3136")
-            .setThumbnail(message.guild.iconURL())
+            .setColor("#6eb6c7")
+            .setThumbnail(bot.user.displayAvatarURL())
             .setTitle(`Users With The ${role.name} Role!`)
             .setDescription(membersWithRole.join("\n"));
         message.channel.send(roleEmbed);

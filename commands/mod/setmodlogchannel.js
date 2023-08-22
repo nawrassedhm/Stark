@@ -9,7 +9,7 @@ module.exports = {
         usage: "[channel mention | channel ID | channel name]",
     },
     run: async (bot, message, args) => {
-        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! - [ADMINISTRATOR]**")
+        if (!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send("**You Do Not Have The Required Permissions! | [ADMINISTRATOR]**")
     if (!args[0]) {
       let b = await db.fetch(`modlog_${message.guild.id}`);
       let channelName = message.guild.channels.cache.get(b);
@@ -19,7 +19,7 @@ module.exports = {
         );
       } else
         return message.channel.send(
-          "**Please Enter A Channel Name or ID To Set!**"
+          "**Please Enter A Channel Name Or ID To Set!**"
         );
     }
         let channel = message.mentions.channels.first() || bot.guilds.cache.get(message.guild.id).channels.cache.get(args[0]) || message.guild.channels.cache.find(c => c.name.toLowerCase() === args.join(' ').toLocaleLowerCase());
@@ -30,7 +30,7 @@ module.exports = {
             let a = await db.fetch(`modlog_${message.guild.id}`)
 
             if (channel.id === a) {
-                return message.channel.send("**This Channel is Already Set As Modlog Channel!**")
+                return message.channel.send("**This Channel Is Already Set As Modlog Channel!**")
             } else {
                 bot.guilds.cache.get(message.guild.id).channels.cache.get(channel.id).send("**Modlog Channel Set!**")
                 db.set(`modlog_${message.guild.id}`, channel.id)
@@ -38,7 +38,7 @@ module.exports = {
                 message.channel.send(`**Modlog Channel Has Been Set Successfully in \`${channel.name}\`!**`)
             }
         } catch {
-            return message.channel.send("**Error - `Missing Permissions Or Channel Is Not A Text Channel!`**");
+            return message.channel.send("**Error | `Missing Permissions Or Channel Is Not A Text Channel!`**");
         }
     }
 };

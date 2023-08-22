@@ -10,7 +10,7 @@ module.exports = {
   run: async (bot, message, args) => {
     if (!message.member.hasPermission("ADMINISTRATOR"))
       return message.channel.send(
-        "**You Do Not Have The Required Permissions! - [ADMINISTRATOR]**"
+        "**You Do Not Have The Required Permissions |  [ADMINISTRATOR]**"
       );
     if (!args[0]) {
       let b = await db.fetch(`muterole_${message.guild.id}`);
@@ -21,7 +21,7 @@ module.exports = {
         );
       } else
         return message.channel.send(
-          "**Please Enter A Role Name or ID To Set!**"
+          "**Please Enter A Role Name Or ID To Set!**"
         );
     }
 
@@ -33,14 +33,14 @@ module.exports = {
       );
 
     if (!role)
-      return message.channel.send("**Please Enter A Valid Role Name or ID!**");
+      return message.channel.send("**Please Enter A Valid Role Name Or ID!**");
 
     try {
       let a = await db.fetch(`muterole_${message.guild.id}`);
 
       if (role.id === a) {
         return message.channel.send(
-          "**This Role is Already Set As Muterole!**"
+          "**This Role Is Already Set As Muterole!**"
         );
       } else {
         db.set(`muterole_${message.guild.id}`, role.id);
@@ -51,7 +51,7 @@ module.exports = {
       }
     } catch (e) {
       return message.channel.send(
-        "**Error - `Missing Permissions or Role Doesn't Exist!`**",
+        "**Error | `Missing Permissions Or Role Doesn't Exist!`**",
         `\n${e.message}`
       );
     }

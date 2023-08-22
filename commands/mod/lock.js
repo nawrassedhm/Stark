@@ -10,7 +10,7 @@ module.exports = {
     run: async (bot, message, args) => {
         let lockPermErr = new Discord.MessageEmbed()
         .setTitle("**User Permission Error!**")
-        .setDescription("**Sorry, you don't have permissions to use this! ❌**")
+        .setDescription("**Sorry, You Don't Have Permissions To Use This!**")
         
         if(!message.channel.permissionsFor(message.member).has("ADMINISTRATOR") ) return message.channel.send(lockPermErr);
 
@@ -27,6 +27,6 @@ module.exports = {
             console.log(e);
         }
 
-        message.channel.send(`Done | Channel Locked!`);
+        message.channel.send(`Done! Channel Locked.`);
     }
 }

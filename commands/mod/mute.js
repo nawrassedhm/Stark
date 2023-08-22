@@ -9,9 +9,9 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         try {
-            if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Dont Have Permmissions To Mute Someone! - [MANAGE_GUILD]**");
+            if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("**You Don't Have Permmissions To Mute Someone! | [MANAGE_GUILD]**");
 
-            if (!message.guild.me.hasPermission("MANAGE_GUILD")) return message.channel.send("**I Don't Have Permissions To Mute Someone! - [MANAGE_GUILD]**")
+            if (!message.guild.me.hasPermission("MANAGE_GUILD")) return message.channel.send("**I Don't Have Permissions To Mute Someone! | [MANAGE_GUILD]**")
             if (!args[0]) return message.channel.send("**Please Enter A User To Be Muted!**");
 
             var mutee = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(r => r.user.username.toLowerCase() === args[0].toLocaleLowerCase()) || message.guild.members.cache.find(ro => ro.displayName.toLowerCase() === args[0].toLocaleLowerCase());
@@ -63,21 +63,21 @@ module.exports = {
             db.set(`muteeid_${message.guild.id}_${mutee.id}`, userRoles)
           try {
             mutee.roles.set([muterole.id]).then(() => {
-                mutee.send(`**Hello, You Have Been Muted In ${message.guild.name} for - ${reason || "No Reason"}`).catch(() => null)
+                mutee.send(`**Hello, You Have Been Muted In ${message.guild.name} For | ${reason || "No Reason"}`).catch(() => null)
             })
             } catch {
                  mutee.roles.set([muterole.id])                               
             }
                 if (reason) {
                 const sembed = new MessageEmbed()
-                    .setColor("GREEN")
+                    .setColor("#6eb6c7")
                     .setAuthor(message.guild.name, message.guild.iconURL())
-                    .setDescription(`${mutee.user.username} was successfully muted for ${reason}`)
+                    .setDescription(`${mutee.user.username} Was Successfully Muted For | ${reason}`)
                 message.channel.send(sembed);
                 } else {
                     const sembed2 = new MessageEmbed()
-                    .setColor("GREEN")
-                    .setDescription(`${mutee.user.username} was successfully muted`)
+                    .setColor("#6eb6c7")
+                    .setDescription(`${mutee.user.username} Was Successfully Muted`)
                 message.channel.send(sembed2);
                 }
             
@@ -85,11 +85,11 @@ module.exports = {
             if (!channel) return;
 
             let embed = new MessageEmbed()
-                .setColor('RED')
+                .setColor('#6eb6c7')
                 .setThumbnail(mutee.user.displayAvatarURL({ dynamic: true }))
                 .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
                 .addField("**Moderation**", "mute")
-                .addField("**Mutee**", mutee.user.username)
+                .addField("**Muted**", mutee.user.username)
                 .addField("**Moderator**", message.author.username)
                 .addField("**Reason**", `${reason || "**No Reason**"}`)
                 .addField("**Date**", message.createdAt.toLocaleString())

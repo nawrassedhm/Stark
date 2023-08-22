@@ -8,14 +8,14 @@ module.exports = {
   
     if (!args[0])
       return message.channel.send(
-        `You did not specify the time in seconds you wish to set this channel's slow mode too!`
+        `You Did Not Specify The Time In Seconds You Wish To Set This Channel's Slowmode Too!`
       );
       
-    if (isNaN(args[0])) return message.channel.send(`That is not a number!`);
+    if (isNaN(args[0])) return message.channel.send(`That Is Not A Number!`);
     
     message.channel.setRateLimitPerUser(args[0]);
     message.channel.send(
-      `Set the slowmode of this channel too **${args[0]}**`
+      `Set The Slowmode Of This Channel Too **${args[0]}**`
     );
   },
 };

@@ -12,8 +12,8 @@ module.exports = {
     },
     run: async (bot, message, args) => {
         try {
-            if (!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
-            if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Do Not Have Permissions To Kick Members! - [KICK_MEMBERS]**");
+            if (!message.member.hasPermission("Kick_MEMBERS")) return message.channel.send("**You Do Not Have Permissions To Kick Members! | [Kick_MEMBERS]**");
+            if (!message.guild.me.hasPermission("KICK_MEMBERS")) return message.channel.send("**I Do Not Have Permissions To Kick Members! | [KICK_MEMBERS]**");
 
             if (!args[0]) return message.channel.send('**Enter A User To Kick!**')
 
@@ -23,13 +23,13 @@ module.exports = {
             if (kickMember.id === message.member.id) return message.channel.send("**You Cannot Kick Yourself!**")
 
             if (!kickMember.kickable) return message.channel.send("**Cannot Kick This User!**")
-            if (kickMember.user.bot) return message.channel.send("**Cannot Kick A Bot!**")
+            if (banMember.user.bot) return message.channel.send("**Cannot Kick A Bot!**")
 
             var reason = args.slice(1).join(" ");
             try {
                 const sembed2 = new MessageEmbed()
-                    .setColor("RED")
-                    .setDescription(`**You Have Been Kicked From ${message.guild.name} for - ${reason || "No Reason!"}**`)
+                    .setColor("#6eb6c7")
+                    .setDescription(`**You Have Been Kicked From ${message.guild.name} For | ${reason}**`)
                     .setFooter(message.guild.name, message.guild.iconURL())
                 kickMember.send(sembed2).then(() =>
                     kickMember.kick()).catch(() => null)
@@ -38,27 +38,27 @@ module.exports = {
             }
             if (reason) {
             var sembed = new MessageEmbed()
-                .setColor("GREEN")
-                .setDescription(`**${kickMember.user.username}** has been kicked for ${reason}`)
+                .setColor("#6eb6c7")
+                .setDescription(`**${banMember.user.username}** Has Been Kicked For | ${reason}`)
             message.channel.send(sembed);
             } else {
                 var sembed2 = new MessageEmbed()
-                .setColor("GREEN")
-                .setDescription(`**${kickMember.user.username}** has been kicked`)
+                .setColor("#6eb6c7")
+                .setDescription(`**${banMember.user.username}** | Has Been Kicked`)
             message.channel.send(sembed2);
             }
-            let channel = db.fetch(`modlog_${message.guild.id}`)
+            let channel = db.fetch(`modlogs_${message.guild.id}`)
             if (!channel) return;
 
             const embed = new MessageEmbed()
-                .setAuthor(`${message.guild.name} Modlogs`, message.guild.iconURL())
-                .setColor("#ff0000")
+                .setAuthor(`${message.guild.name} modlogs`, message.guild.iconURL())
+                .setColor("#6eb6c7")
                 .setThumbnail(kickMember.user.displayAvatarURL({ dynamic: true }))
                 .setFooter(message.guild.name, message.guild.iconURL())
                 .addField("**Moderation**", "kick")
                 .addField("**User Kicked**", kickMember.user.username)
                 .addField("**Kicked By**", message.author.username)
-                .addField("**Reason**", `${reason || "**No Reason**"}`)
+                .addField("**Reason**", `${reason}`)
                 .addField("**Date**", message.createdAt.toLocaleString())
                 .setTimestamp();
 
