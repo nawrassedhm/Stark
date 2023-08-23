@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "warn",
     description: "warn members",
-    usage: "m/warn <mention member/member id> [reason]",
+    usage: "@warn <mention member/member id> [reason]",
     aliases: []
   },
   run: async (bot, message, args) => {

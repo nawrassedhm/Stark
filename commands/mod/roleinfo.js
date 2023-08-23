@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: 'roleinfo',
     description: "shows stats of the mentioned role",
-    usage: "m/roleinfo <role mention/role id>",
+    usage: "@roleinfo <role mention/role id>",
     aliases: ['rinfo', 'rolei']
   },
   run: async (bot, message, args) => {

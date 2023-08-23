@@ -4,8 +4,8 @@ module.exports = {
   config: {
     name: "svr",
     description: "Set the server region for the server! \nAvailable Server IDs: \nbz : Brazil, \nhk : HongKong, \nind : India, \njp : Japan, \nrus : Russia, \nsin : Singapore, \nsa : South Africa, \nsyd : Sydney, \nusc : US-Central, \nuse : US-East, \nuss : US-South, \nusw : US-West, \neur : Europe",
-    usage: "m/svr <region ID>",
-    example: "m/svr jp",
+    usage: "@svr <region ID>",
+    example: "@svr jp",
     aliases: ['svr'],
 
   },

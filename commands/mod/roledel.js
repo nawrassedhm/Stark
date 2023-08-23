@@ -3,7 +3,7 @@ module.exports = {
   config: {
     name: "roledel",
     description: "Remove a role from a member",
-    usage: "m/roledel <member mention/member id> <role mention/role id>",
+    usage: "@roledel <member mention/member id> <role mention/role id>",
     aliases: ['role del', 'role delete', 'rdel']
   },
   run: async (bot, message, args) => {

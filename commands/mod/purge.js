@@ -6,7 +6,7 @@ module.exports = {
     aliases: [],
     category: "moderation",
     description: "Deletes messages from a channel",
-    usage: "m/purge [amount of messages]"
+    usage: "@purge [amount of messages]"
   },
   run: async (bot, message, args) => {
     if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You Don't Have Sufficient Permissions! | [MANAGE_MESSAGES]")

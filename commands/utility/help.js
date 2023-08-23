@@ -8,8 +8,8 @@ module.exports = {
   config: {
     name: "help",
     description: "Help",
-    usage: "1) m/help \n2) m/help [module name]\n3) m/help [command (name or alias)]",
-    example: "1) m/help\n2) m/help ban",
+    usage: "\n1) @help \n2) @help [module name] \n3) @help [command (name or alias)]",
+    example: "\n1) @help \n2) @help ban",
     aliases: ['h']
   },
   run: async (bot, message, args) => {
@@ -40,7 +40,7 @@ module.exports = {
       var embed = new Discord.MessageEmbed()
         .setTitle('**Stark Commands**')
         .setColor("#6eb6c7")
-        .setFooter(`Page ${page} of ${pages.length}`, bot.user.displayAvatarURL())
+        .setFooter(`Page ${page} Of ${pages.length}`, bot.user.displayAvatarURL())
         .setDescription(pages[page - 1])
 
       message.channel.send({ embed }).then(msg => {
@@ -58,7 +58,7 @@ module.exports = {
             if (page === 1) return r.users.remove(r.users.cache.filter(u => u === message.author).first())
             page--
             embed.setDescription(pages[page - 1])
-            embed.setFooter(`Page ${page} of ${pages.length}`, bot.user.displayAvatarURL())
+            embed.setFooter(`Page ${page} Of ${pages.length}`, bot.user.displayAvatarURL())
             msg.edit(embed)
             r.users.remove(r.users.cache.filter(u => u === message.author).first())
           })
@@ -67,7 +67,7 @@ module.exports = {
             if (page === pages.length) return r.users.remove(r.users.cache.filter(u => u === message.author).first())
             page++
             embed.setDescription(pages[page - 1])
-            embed.setFooter(`Page ${page} of ${pages.length}`, bot.user.displayAvatarURL())
+            embed.setFooter(`Page ${page} Of ${pages.length}`, bot.user.displayAvatarURL())
             msg.edit(embed)
             r.users.remove(r.users.cache.filter(u => u === message.author).first())
           })

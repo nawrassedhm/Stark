@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "roleadd",
     description: "Add a role to a member",
-    usage: "m/roleadd <member mention/id> <role mention/role id>",
+    usage: "@roleadd <member mention/id> <role mention/role id>",
     aliases: ['role add', 'radd']
   },
   run: async (client, message, args) => {

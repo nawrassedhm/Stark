@@ -12,7 +12,7 @@ module.exports = {
   config: {
     name: "whois",
     description: "userinfo",
-    usage: "m/whois <mention a member/member id>",
+    usage: "@whois <mention a member/member id>",
     aliases: ['ui', 'userinfo']
   },
   run: async (bot, message, args) => {

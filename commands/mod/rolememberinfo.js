@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "rolememberinfo",
     description: "Shows List Of Members Having A Role",
-    usage: "m/rolememberinfo <role mention/role id>",
+    usage: "@rolememberinfo <role mention/role id>",
     aliases: ['rmi', 'rmemberinfo']
   },
   run: async (bot, message, args) => {
