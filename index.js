@@ -2,6 +2,7 @@
 
 const { Client, Collection } = require('discord.js');
 const { PREFIX, TOKEN } = require('./config');
+const keepAlive = require(`./server`);
 const bot = new Client({ disableMentions: 'everyone' });
 const fs = require("fs");
 const db = require('quick.db');
@@ -49,3 +50,4 @@ bot.on('message', async message => {
 //============================================================================================================================================================================================================
 
 bot.login(TOKEN);
+keepAlive();

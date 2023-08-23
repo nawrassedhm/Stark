@@ -12,7 +12,7 @@ module.exports = {
 
     let rMember = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
 
-    if (!rMember) return message.channel.send("Please Provide A User To Add A Role Too.")
+    if (!rMember) return message.channel.send("Please Provide A User To Add A Role To.")
 
     let role = message.guild.roles.cache.find(r => r.name == args[1]) || message.guild.roles.cache.find(r => r.id == args[1]) || message.mentions.roles.first()
 
