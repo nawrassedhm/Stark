@@ -1,5 +1,5 @@
-exports.TOKEN = "MTE0MjkwMjg1NTgyMTQzNDk2MQ.GFe8Op.CAKg1HdMJqiBwryl97oFmx_oP1ItH2MSPwRRts";
+exports.TOKEN = "";
 
-exports.PREFIX = "@";
+exports.PREFIX = "";
 
-exports.OWNER_ID = "1119094799803371621"
+exports.OWNER_ID = ""
