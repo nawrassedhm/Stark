@@ -1,7 +1,7 @@
 {
   "name": "Stark",
   "version": "5.0.0",
-  "description": "",
+  "description": "Making The Worlf A Better Place.",
   "main": "index.js",
   "dependencies": {
     "@discordjs/opus": "^0.8.0",

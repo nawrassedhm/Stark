@@ -22,7 +22,7 @@ bot.aliases = new Collection();
 bot.categories = fs.readdirSync("./commands/");
 
 ["command"].forEach(handler => {
-    require(`./handler/${handler}`)(bot);
+  require(`./handler/${handler}`)(bot);
 });
 
 //============================================================================================================================================================================================================
@@ -33,26 +33,26 @@ bot.categories = fs.readdirSync("./commands/");
 bot.on('message', async message => {
 
 
-    let prefix;
-        try {
-            let fetched = await db.fetch(`prefix_${message.guild.id}`);
-            if (fetched == null) {
-                prefix = PREFIX
-            } else {
-                prefix = fetched
-            }
-        
-            } catch {
-            prefix = PREFIX
-    };
-    try {
-        if (message.mentions.has(bot.user.id) && !message.content.includes("@everyone") && !message.content.includes("@here")) {
-          message.channel.send(`\nMy prefix for \`${message.guild.name}\` is \`${prefix}\` Type \`${prefix}help\` for help`);
-          }
-          
-    } catch {
-        return;
-    };
+  let prefix;
+  try {
+    let fetched = await db.fetch(`prefix_${message.guild.id}`);
+    if (fetched == null) {
+      prefix = PREFIX
+    } else {
+      prefix = fetched
+    }
+
+  } catch {
+    prefix = PREFIX
+  };
+  try {
+    if (message.mentions.has(bot.user.id) && !message.content.includes("@everyone") && !message.content.includes("@here")) {
+      message.channel.send(`\nMy prefix for \`${message.guild.name}\` is \`${prefix}\` Type \`${prefix}help\` for help`);
+    }
+
+  } catch {
+    return;
+  };
 
 });
 

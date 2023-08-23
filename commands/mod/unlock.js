@@ -2,31 +2,31 @@ const Discord = require('discord.js');
 const { Console } = require('console');
 
 module.exports = {
-    config: {
-        name: "unlock",
-        description: "unlock channel",
-        aliases: []
-    },
-    run: async (bot, message, args) => {
-        let lockPermErr = new Discord.MessageEmbed()
-        .setTitle("**User Permission Error!**")
-        .setDescription("**Sorry, You Don't Have Permissions To Use This!**")
-        
-        if(!message.channel.permissionsFor(message.member).has("ADMINISTRATOR") ) return message.channel.send(lockPermErr);
+  config: {
+    name: "unlock",
+    description: "unlock channel",
+    aliases: []
+  },
+  run: async (bot, message, args) => {
+    let lockPermErr = new Discord.MessageEmbed()
+      .setTitle("**User Permission Error!**")
+      .setDescription("**Sorry, You Don't Have Permissions To Use This!**")
 
-        let channel = message.channel;
+    if (!message.channel.permissionsFor(message.member).has("ADMINISTRATOR")) return message.channel.send(lockPermErr);
 
-        try {
-            message.guild.roles.cache.forEach(role => {
-                channel.createOverwrite(role, {
-                    SEND_MESSAGES: true,
-                    ADD_REACTIONS: true
-                });
-            });
-        } catch (e) {
-            console.log(e);
-        }
+    let channel = message.channel;
 
-        message.channel.send(`Done | Channel Unlocked!`);
+    try {
+      message.guild.roles.cache.forEach(role => {
+        channel.createOverwrite(role, {
+          SEND_MESSAGES: true,
+          ADD_REACTIONS: true
+        });
+      });
+    } catch (e) {
+      console.log(e);
     }
+
+    message.channel.send(`Done | Channel Unlocked!`);
+  }
 }
